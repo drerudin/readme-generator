@@ -2,6 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./Develop/utils/generateMarkdown')
+const path = require('path')
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -9,6 +10,12 @@ const questions = [
         type: 'input',
         message: 'What is the name of your project?',
         name: 'title',
+        validate: (value)=>{ if(value){return true} else {return 'Give me something here to continue!'}},
+    },
+    {
+        type: 'input',
+        message: 'Describe what your project is all about.',
+        name: 'description',
         validate: (value)=>{ if(value){return true} else {return 'Give me something here to continue!'}},
     },
     {
@@ -33,13 +40,36 @@ const questions = [
         type: 'list',
         message: 'What license did you use for this project?',
         name: 'license',
-        choices: ['MIT', 'gpl-3.0', 'apache-2.0', 'bsl-1.0', 'none']
+        choices: ['MIT', 'gpl-3.0', 'apache-2.0', 'bsl-1.0', 'none'],
+        validate: (value)=>{ if(value){return true} else {return 'Give me something here to continue!'}},
+
     },
     {
         type: 'checkbox',
         message: 'Did you want other programmers to contribute?',
         name: 'contributing',
-        choices: ['yes', 'no']
+        choices: ['yes', 'no'],
+        validate: (value)=>{ if(value){return true} else {return 'Give me something here to continue!'}},
+
+    },
+    {
+        type: 'input',
+        message: 'What tests if any did you use for this project?',
+        name: 'tests',
+        validate: (value)=>{ if(value){return true} else {return 'Give me something here to continue!'}},
+
+    },
+    {
+        type: 'input',
+        message: 'What is your github username?',
+        name: 'username',
+        validate: (value)=>{ if(value){return true} else {return 'Give me something here to continue!'}},
+    },
+    {
+        type: 'email',
+        message: 'Add your email for contact.',
+        name: 'email',
+        validate: (value)=>{ if(value){return true} else {return 'Give me something here to continue!'}},
     }
 ];
 
@@ -49,7 +79,13 @@ return fs.writeFileSync(path.join(process.cwd(), fileName),data)
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then((inquirerresponses)=>{
+        writeToFile('readMe.md',generateMarkdown({
+            ...inquirerresponses
+        }))
+    })
+}
 
 // Function call to initialize app
 init();

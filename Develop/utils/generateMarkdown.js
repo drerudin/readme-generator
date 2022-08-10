@@ -3,7 +3,7 @@
 function renderLicenseBadge(license) {
   
   if (license !== 'none') {
-    return `![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)`  
+    return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`  
   }
   return ""
 }
@@ -50,12 +50,18 @@ ${data.credits}
 
 ## Contributing
 
-${data.contributions}
+${data.contributing}
 
 ## Tests
 To run test, type:
 
 ${data.tests}
+
+## Questions
+
+github.com/${data.username}
+
+Reach me at: ${data.email}
 `;
 }
 
