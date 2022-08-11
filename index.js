@@ -81,7 +81,7 @@ return fs.writeFileSync(path.join(process.cwd(), fileName),data)
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((inquirerresponses)=>{
-        writeToFile('readMe.md',generateMarkdown({
+        writeToFile('/dist/readMe.md',generateMarkdown({
             ...inquirerresponses
         }))
     })
