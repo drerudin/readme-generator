@@ -79,6 +79,7 @@ return fs.writeFileSync(path.join(process.cwd(), fileName),data)
 }
 
 // TODO: Create a function to initialize app
+// Starts the app and places the created file in the /dist folder
 function init() {
     inquirer.prompt(questions).then((inquirerresponses)=>{
         writeToFile('/dist/readMe.md',generateMarkdown({
