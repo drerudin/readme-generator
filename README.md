@@ -35,3 +35,5 @@ Reach me at: drerudin@gmail.com
 https://drive.google.com/file/d/1qu9Hcf5ixeV1Krx0Fl9OekG80Pl2DNX-/view
 
 https://github.com/drerudin/readme-generator
+
+![image](https://user-images.githubusercontent.com/99576524/184069389-16817de4-88b8-442d-b9e8-b0f3e0625a69.png)
